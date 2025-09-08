@@ -8,6 +8,6 @@ export const connection = new DataSource({
   password: "",
   database: "first_project",
   entities: [users],
-  synchronize: true,
+  synchronize: false,
   logging: false
 });

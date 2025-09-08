@@ -6,7 +6,8 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "ts-node app.ts",
     "build": "tsc",
-    "serve": "node dist/app.js"
+    "serve": "node dist/app.js",
+    "dev": "nodemon app.ts"
   },
   "keywords": [],
   "author": "",
