@@ -1,5 +1,5 @@
 import { connection } from '../db/connection'
-import { users } from "../entities/User"
+import { users } from "../entities/user.entity"
 
 export const userRepository = connection.getRepository(users);
 

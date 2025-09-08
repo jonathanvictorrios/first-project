@@ -1,4 +1,4 @@
-import { users } from "../entities/User";
+import { users } from "../entities/user.entity";
 import { DataSource } from "typeorm";
 export const connection = new DataSource({
   type: "mysql" ,
