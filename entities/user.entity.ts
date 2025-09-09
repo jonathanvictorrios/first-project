@@ -7,4 +7,6 @@ export class users {
     name?: string;
     @Column()
     email?: string;
+    @Column()
+    password?: string;
 }
