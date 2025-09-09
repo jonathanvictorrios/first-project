@@ -1,4 +1,4 @@
-import { getProductById, productRepository } from "../repositories/produc.repository"
+import { getProductById, productRepository } from "../repositories/product.repository"
 import { Router } from "express";
 
 const router = Router();
