@@ -9,7 +9,7 @@ const jsonParser = bodyParser.json()
 const urlEncodedParser = bodyParser.urlencoded()
 
 router.post("/register", jsonParser , (req, res) => {
-    
+    // asdasdsad
     if(!req.body || !req.body.name) {
         res.sendStatus(400)
     }else{
