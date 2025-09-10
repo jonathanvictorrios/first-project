@@ -9,7 +9,8 @@ export class UserService{
                 email:email,
                 password:hashPassword
             })
-            const savedUser = await userRepository.save(newUser)
+            await userRepository.save(newUser)
+            return newUser
         }
 
 }

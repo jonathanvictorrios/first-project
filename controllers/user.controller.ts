@@ -1,4 +1,4 @@
-import { userRepository} from './../repositories/user.repository';
+import { findByEmail, userRepository} from './../repositories/user.repository';
 import { Request, Response } from 'express';
 import { connection } from '../db/connection'
 import { users } from "../entities/user.entity"
@@ -10,12 +10,16 @@ export class UserController{
     async register (req:Request, res:Response) {
         const {name , email , password } = req.body;
         const userService = new UserService
+        const existingEmail =await findByEmail(email)
+        if(existingEmail){
+            res.status(200).json({message:"Email already exists"})
+            return
+        }
         try {
-            await userService.register(name,password,email);
-            res.status(201);
-            res.send("User register");
-        } catch (error) {
-            res.status(400).json({message:"error register user"});
+            const newUser = await userService.register(name,password,email);
+            res.status(200).json({message:"User Registered" , user:{name:newUser.name , email:newUser.email}})
+        } catch (error:any) {
+            res.send(error)            
         }
     }
     // async login (req:Request, res:Response){

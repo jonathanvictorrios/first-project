@@ -8,12 +8,12 @@ const router = Router();
 const jsonParser = bodyParser.json()
 const urlEncodedParser = bodyParser.urlencoded()
 const userController = new UserController();
-router.post("/register", jsonParser , (req, res) => {
+router.post("/register" , (req, res) => {
+    //basic validation verifying if each field exist
     if(!req.body || !req.body.name || !req.body.password || !req.body.email) {
         res.sendStatus(400)
     }else{
-        const newUser = userController.register(req, res);
-        res.send(newUser);
+        userController.register(req, res);
     }
 });
 router.get("/users", async (req, res) => {
