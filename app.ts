@@ -3,11 +3,10 @@ import { connection } from "./db/connection";
 import cors from "cors";
 import userRoutes from "./routes/user.routes";
 import productRoutes from "./routes/product.routes";
-
-const app = express();
+import dotenv from 'dotenv';const app = express();
 app.use(cors());
 app.use(express.json());
-
+dotenv.config();
 const server = app.listen(3000,()=>{
     console.log('listening in port 3000');
 })

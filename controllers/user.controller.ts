@@ -4,6 +4,7 @@ import { connection } from '../db/connection'
 import { users } from "../entities/user.entity"
 import bcrypt from "bcrypt";
 import { UserService } from '../services/user.service';
+import { error } from 'console';
 const jwt = require("jsonwebtoken");
 
 export class UserController{
@@ -22,18 +23,16 @@ export class UserController{
             res.send(error)            
         }
     }
-    // async login (req:Request, res:Response){
-    //     const {email , password } = req.body;
-    //     if (!email || !password) {
-    //         res.status(400);
-    //         throw new Error("Please add all fields");
-    //     }
-    //     const user = await userRepository.findByEmail;
-    //     if(user && (await bcrypt.compare(password, user.password))){
-
-    //     }
-
-    // }
+    async login (req:Request, res:Response){
+        const {email,password} = req.body
+        const userService = new UserService
+        const token = await userService.login(email,password)
+        if(token){
+            res.status(200).json({token:token})
+            return
+        }
+        throw new Error("data incorrect!");
+    }
     async generateJwt(id:number){
         return jwt.sign({id}, process.env.JWT_SECRET,{expiresIn:"1h"});
     }

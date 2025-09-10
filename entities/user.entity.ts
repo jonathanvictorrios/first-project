@@ -2,11 +2,11 @@ import {Entity, Column, PrimaryGeneratedColumn} from "typeorm";
 @Entity()
 export class users {
     @PrimaryGeneratedColumn()
-    id?: number;
+    id!: number;
     @Column()
-    name?: string;
+    name!: string;
     @Column()
-    email?: string;
+    email!: string;
     @Column()
-    password?: string;
+    password!: string;
 }
