@@ -1,7 +1,6 @@
 import { NextFunction, Request, Response } from 'express';
 const jwt = require('jsonwebtoken')
 export const authMiddleware = async (req:Request , res:Response , next:NextFunction) =>{
-    console.log("entramos al middleware");
     const authHeader = req.headers.authorization;
     if(authHeader){
         const token = authHeader.split(' ')[1];
@@ -13,7 +12,6 @@ export const authMiddleware = async (req:Request , res:Response , next:NextFunct
             return res.status(401).json({message: 'Invalid token'}); 
         }
     }else{
-        console.log("no existe el header");
         return res.status(401).json({ message: 'No token provided' });
     }
 }

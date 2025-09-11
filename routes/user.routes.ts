@@ -23,7 +23,7 @@ router.post("/register" , (req, res) => {
         userController.register(req, res);
     }
 });
-router.get("/users", async (req, res) => {
+router.get("/users",async (req, res) => {
     const users = await userRepository.find();
     res.send(users);
 });

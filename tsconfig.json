@@ -9,8 +9,19 @@
     "strict": true,
     "skipLibCheck": true,
     "typeRoots": [
-      "./node_modules/@types",
-      "./types"
+      "./types",
+      "./node_modules/@types"
     ]
   },
+   "include": [
+    "types",
+    "controllers",
+    "middlewares",
+    "repositories",
+    "entities",
+    "services",
+    "db",
+    "routes",
+    "app.ts"
+  ]
 }
