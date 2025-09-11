@@ -7,7 +7,7 @@ import dotenv from 'dotenv';const app = express();
 app.use(cors());
 app.use(express.json());
 dotenv.config();
-const server = app.listen(3000,()=>{
+const server = app.listen(55324,()=>{
     console.log('listening in port 3000');
 })
 connection.initialize()

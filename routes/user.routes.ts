@@ -4,6 +4,8 @@ import { UserController } from '../controllers/user.controller';
 import bodyParser from "body-parser";
 import { authMiddleware } from "../middlewares/auth.middleware";
 import express from 'express';
+import { connection } from "../db/connection";
+import { movilidad} from "../entities/movilidad.entity";
 
 const router = Router();
 
@@ -26,6 +28,12 @@ router.post("/register" , (req, res) => {
 router.get("/users",async (req, res) => {
     const users = await userRepository.find();
     res.send(users);
+});
+router.get("/movilidad",async (req, res) => {
+    const movilidadRepository = connection.getRepository(movilidad);
+    console.log(movilidadRepository)
+    const movilidades = await movilidadRepository.find();
+    res.send(movilidades);
 });
 
 export default router;
